@@ -1,17 +1,27 @@
 from ultralytics import YOLO
 import cv2
+import pickle
 
 class PlayerTracker:
     
     def __init__(self,model_path) :
         self.model = YOLO(model_path)
 
-    def detect_frames(self,frames):
+    def detect_frames(self,frames, read_from_stub=False, stub_path=None):
         player_detections = []
+
+        if read_from_stub and stub_path is not None:
+            with open(stub_path, 'rb') as f:
+                player_detections = pickle.load(f)
+            return player_detections
 
         for frame in frames:
             player_dict = self.detect_frame(frame)
             player_detections.append(player_dict)
+
+        if stub_path is not None:
+            with open(stub_path, 'wb') as f:
+                pickle.dump(player_detections, f)
 
         return player_detections
 
