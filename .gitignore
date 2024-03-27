@@ -1,0 +1,6 @@
+.env
+yolov8x.pt
+training/tennis-ball-detection-6/tennis-ball-detection-6
+models
+output_videos
+runs
