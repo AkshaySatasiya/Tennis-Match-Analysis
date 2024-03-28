@@ -3,6 +3,7 @@ from utils import (read_video,
 from trackers import (PlayerTracker,
                       BallTracker)
 from court_line_detector import CourtLineDetector
+from mini_court import MiniCourt
 import cv2
 
 def main():
@@ -33,6 +34,21 @@ def main():
     # Choose players
     player_detections = player_tracker.choose_and_filter_player(court_keypoints, player_detections)
 
+    # Minicourt
+    mini_court = MiniCourt(video_frames[0])
+
+    # Detect ball shots
+    ball_shot_frames = ball_tracker.get_ball_shot_frame(ball_detections)
+    print(ball_shot_frames)
+
+    # Convert position to mini court positions
+    player_mini_court_detection,ball_mini_court_detection = mini_court.convert_bounding_boxes_to_mini_court_coordinates(player_detections, 
+                                                                                                                        ball_detections, 
+                                                                                                                        court_keypoints)
+
+
+
+
     # Draw Bounding Box
     output_video_frames = player_tracker.draw_bboxes(video_frames, player_detections)
     output_video_frames = ball_tracker.draw_bboxes(output_video_frames, ball_detections)
@@ -41,12 +57,18 @@ def main():
     # Draw court keypoints 
     output_video_frames = court_line_detector.draw_keypoints_on_video(output_video_frames,court_keypoints)
 
+    #draw mini court
+    output_video_frames = mini_court.draw_mini_court(output_video_frames)
+    output_video_frames = mini_court.draw_points_on_mini_court(output_video_frames, player_mini_court_detection)
+    output_video_frames = mini_court.draw_points_on_mini_court(output_video_frames, ball_mini_court_detection, color=(0,255,255))
+
+
     #draw frame number on top left corner
     for i,frame in enumerate(output_video_frames):
         cv2.putText(frame, f"Frame: {i}", (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,255), 2)
 
     # Save Video
-    save_video(output_video_frames, "output_videos/output_video_1.avi")
+    save_video(output_video_frames, "output_videos/output_video_2.avi")
 
 if __name__ == "__main__":
     main()
