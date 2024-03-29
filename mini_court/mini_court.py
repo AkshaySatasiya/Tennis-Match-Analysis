@@ -216,7 +216,8 @@ class MiniCourt():
                 #get the closest keypoint in pixels 
                 closest_key_point_index = get_closest_keypoint_index(foot_position,original_court_key_points, [0,2,12,13])
                 closest_key_point = (original_court_key_points[closest_key_point_index*2], 
-                                     original_court_key_points[closest_key_point_index*2+1])
+                                     original_court_key_points[closest_key_point_index*2+1]
+                                     )
 
                 # get player height in pixels
                 frame_index_min = max(0, frame_num-20)
@@ -260,3 +261,4 @@ class MiniCourt():
                 cv2.circle(frame, (x,y), 5, color, -1)
 
         return frames
+    
