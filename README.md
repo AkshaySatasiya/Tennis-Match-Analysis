@@ -18,6 +18,27 @@ Welcome to the "Tennis Analysis" project! This project pioneers tennis match ana
 Whether you're a player looking to improve your skills, a coach seeking to optimize training strategies, or a sports enthusiast eager to dive deeper into the intricacies of tennis, this project has something to offer. 🙌
 
 
+## 🧠 Pretrained Models
+
+The "Tennis Analysis" project leverages pretrained models to enhance its performance and accuracy. These models have been trained on extensive datasets and provide a solid foundation for player detection, ball detection, and key point detection of the court. 💪
+
+### 🎯 Player Detection
+
+- For player detection, the project utilizes the `yolov8x.pt` model. This model is based on the YOLOv8 architecture and has been pretrained on a large dataset of human images. It offers high accuracy and real-time performance in detecting players on the tennis court. 🏃‍♂️🏃‍♀️
+
+### 🎾 Ball Detection and Court Key Point Detection
+
+- For ball detection and key point detection of the court, the project employs custom-trained models. 
+
+The custom-trained models for ball detection and court key point detection can be downloaded from the following link:
+- [Custom Trained Models](https://drive.google.com/drive/u/0/folders/1MsTE1qLO8llAejN44ZyOwlqI1oo9Ol7I)
+
+#### To use the models, follow these steps:
+1. Download the model files from the provided link.
+2. Extract the downloaded files and place them in the designated directory of the project.
+3. Update the configuration file or settings to specify the paths to the custom-trained models.(In models folder)
+
+
 ## 🚀 Installation
 
 ### 📋 Step-by-Step Instructions
@@ -103,27 +124,6 @@ Presents data through tables, charts, and graphs for a comprehensive overview.
 4. 🎮 Mini Court Visualization:
    - Displays real-time player and ball movements on a scaled-down tennis court.
 Facilitates quick understanding of match dynamics and player positioning.
-
-
-## 🧠 Pretrained Models
-
-The "Tennis Analysis" project leverages pretrained models to enhance its performance and accuracy. These models have been trained on extensive datasets and provide a solid foundation for player detection, ball detection, and key point detection of the court. 💪
-
-### 🎯 Player Detection
-
-- For player detection, the project utilizes the `yolov8x.pt` model. This model is based on the YOLOv8 architecture and has been pretrained on a large dataset of human images. It offers high accuracy and real-time performance in detecting players on the tennis court. 🏃‍♂️🏃‍♀️
-
-### 🎾 Ball Detection and Court Key Point Detection
-
-- For ball detection and key point detection of the court, the project employs custom-trained models. 
-
-The custom-trained models for ball detection and court key point detection can be downloaded from the following link:
-- [Custom Trained Models](https://drive.google.com/drive/u/0/folders/1MsTE1qLO8llAejN44ZyOwlqI1oo9Ol7I)
-
-#### To use the models, follow these steps:
-1. Download the model files from the provided link.
-2. Extract the downloaded files and place them in the designated directory of the project.
-3. Update the configuration file or settings to specify the paths to the custom-trained models.
 
 
 ## 🔮 Future Enhancements
